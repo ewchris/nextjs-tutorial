@@ -52,6 +52,36 @@ export async function fetchLatestInvoices() {
   }
 }
 
+export async function fetchTotalInvoicesByStatus(status: string) {
+  try {
+    const invoiceCountPromise = sql`SELECT COUNT(*) FROM invoices WHERE status=${status}`;
+    return invoiceCountPromise;
+  } catch (error) {
+    console.error('Failed to fetch invoices by status:', error);
+    throw new Error(`Failed to fetch invoices with status ${status}.`);
+  }
+}
+
+export async function fetchTotalInvoices() {
+  try {
+    const invoiceCountPromise = sql`SELECT COUNT(*) FROM invoices`;
+    return invoiceCountPromise;
+  } catch (error) {
+    console.error('Failed to fetch total invoices:', error);
+    throw new Error('Failed to fetch total invoices.');
+  }
+}
+
+export async function fetchTotalCustomers() {
+  try {
+    const invoiceCountPromise = sql`SELECT COUNT(*) FROM customers`;
+    return invoiceCountPromise;
+  } catch (error) {
+    console.error('Failed to fetch total customers:', error);
+    throw new Error('Failed to fetch total customers.');
+  }
+}
+
 export async function fetchCardData() {
   try {
     // You can probably combine these into a single SQL query
