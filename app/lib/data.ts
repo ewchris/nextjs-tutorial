@@ -1,4 +1,5 @@
 import { sql } from '@vercel/postgres';
+import { unstable_cache as noStore } from 'next/cache';
 import {
   CustomerField,
   CustomersTableType,
@@ -13,6 +14,15 @@ import { formatCurrency } from './utils';
 export async function fetchRevenue() {
   // Add noStore() here to prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
+  // https://nextjs.org/learn/dashboard-app/static-and-dynamic-rendering
+  // noStore();
+  /* 
+  This is pretty terrible for a tutorial. The tutorial instructs the learner to
+  use the noStore method to prevent caching, and also states that this method is
+  experimental. Upon attempting this part of the tutorial noStore does not work as
+  instructed and requires a callback for some reason that isn't explained nor does
+  the documentation explain what the callback should do.
+  */
 
   try {
     // Artificially delay a response for demo purposes.
