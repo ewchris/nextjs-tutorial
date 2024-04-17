@@ -21,7 +21,9 @@ export async function fetchRevenue() {
   use the noStore method to prevent caching, and also states that this method is
   experimental. Upon attempting this part of the tutorial noStore does not work as
   instructed and requires a callback for some reason that isn't explained nor does
-  the documentation explain what the callback should do.
+  the documentation explain what the callback should do, nor can I find any relavent
+  articles to get around the issue, probably because this is not something you would 
+  want to do in any real world scenario and was mainly used to explain a point.
   */
 
   try {
